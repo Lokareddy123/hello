@@ -1,11 +1,11 @@
 def call(ip,user.credId){
-       sshagent([credId]) {
+    sshagent([CredId) {
       sh "mv target/myweb*.war target/app.war"
       //copy war 
-      sh "scp -o StrictHostKeyChecking=no target/myweb.war $(user)@${ip}:/opt/tomcat9/myweb"
+      sh "scp -o StrictHostKeyChecking=no target/myweb.war $(user)@${ip}:/opt/tomcat9/webapps"
        //stop tomcat
       sh "ssh ${user}@${ip} /opt/tomcat9/bin/shutdown.sh"
        //start tommcat
       sh "ssh ${user}@${ip} /opt/tomcat9/bin/startup.sh"
-      }
+    }
 }                     
